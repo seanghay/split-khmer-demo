@@ -1,8 +1,9 @@
 import 'milligram'
-import { split, processText } from 'split-khmer'
+import { split, processText, joinToString } from 'split-khmer'
 const $text = document.getElementById('text');
 const $output = document.getElementById('output');
 const $textOutput = document.getElementById('text-output');
+const $textReverse = document.getElementById('text-reverse');
 
 
 $text.addEventListener('input', () => {
@@ -11,4 +12,5 @@ $text.addEventListener('input', () => {
     null, 2
   );
   $textOutput.value = processText($text.value)
+  $textReverse.value = joinToString(split($text.value).reverse())
 })
